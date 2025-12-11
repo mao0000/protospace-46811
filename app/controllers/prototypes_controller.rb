@@ -30,7 +30,6 @@ class PrototypesController < ApplicationController
 
   def update
     if @prototype.update(prototype_params)
-      redirect_to prototype_path(params[:id])
       redirect_to prototype_path(@prototype)
     else
       render :edit, status: :unprocessable_entity
@@ -38,7 +37,6 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    prototype.destroy
     @prototype.destroy
     redirect_to root_path
   end
